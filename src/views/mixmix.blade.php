@@ -10,6 +10,9 @@ if (preg_match_all('/<script.+?src="(.+?)[\?"]/', $slot, $jss)){
     $jsContents = [];
 
     $baseName = md5(json_encode($jss[1])) . '.js';
+    if (!file_exists(storage_path('app/public/mixmix'))) {
+        \File::makeDirectory(storage_path('app/public/mixmix'), 0775, true);
+    }
     $jsFile = storage_path('app/public/mixmix/' . $baseName);
 
     if(!is_file($jsFile) || request()->MIXMIX_REFRESH){
@@ -23,7 +26,7 @@ if (preg_match_all('/<script.+?src="(.+?)[\?"]/', $slot, $jss)){
             }
         }
 
-        echo "\n<!-- MIXMIX_REFRESH\n" . implode("\n", $jss[1]) . "\n-->\n";
+        //echo "\n<!-- MIXMIX_REFRESH\n" . implode("\n", $jss[1]) . "\n-->\n";
 
         file_put_contents($jsFile, implode('', $jsContents));
     }
@@ -36,8 +39,9 @@ if (preg_match_all('/<script.+?src="(.+?)[\?"]/', $slot, $jss)){
 if (preg_match_all('/<link.+?href="(.+?)[\?"].+?>/', $slot, $csss)){
 
     $cssContents = [];
-
-
+    if (!file_exists(storage_path('app/public/mixmix'))) {
+        \File::makeDirectory(storage_path('app/public/mixmix'), 0775, true);
+    }
     $baseName = md5(json_encode($csss[1])).'.css';
     $cssFile = storage_path('app/public/mixmix/' . $baseName);
 
@@ -53,7 +57,7 @@ if (preg_match_all('/<link.+?href="(.+?)[\?"].+?>/', $slot, $csss)){
             }
         }
 
-        echo "\n<!-- MIXMIX_REFRESH\n" . implode("\n", $csss[1]) . "\n-->\n";
+        //echo "\n<!-- MIXMIX_REFRESH\n" . implode("\n", $csss[1]) . "\n-->\n";
 
         file_put_contents($cssFile, implode('', $cssContents));
     }
@@ -61,8 +65,3 @@ if (preg_match_all('/<link.+?href="(.+?)[\?"].+?>/', $slot, $csss)){
     printf('<link href="/storage/mixmix/%s?%s" rel="stylesheet" type="text/css">',
         $baseName, filemtime($cssFile));
 }
-
-
-
-
-
