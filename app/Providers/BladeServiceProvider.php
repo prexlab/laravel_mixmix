@@ -15,14 +15,6 @@ class BladeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('markdown', function ($expression) {
-            return '<?php $__env->startComponent(\'components.markdown\'); ?>';
-        });
-
-        Blade::directive('endmarkdown', function ($expression) {
-            return '<?php echo $__env->renderComponent(); ?>';
-        });
-
         Blade::directive('mixmix', function ($expression) {
             return '<?php $__env->startComponent(\'components.mixmix\'); ?>';
         });
