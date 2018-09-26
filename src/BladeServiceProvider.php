@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Prexlab\LaravelMixmix;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
@@ -15,8 +15,9 @@ class BladeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__ . '/views', 'laravel-mixmix');
         Blade::directive('mixmix', function ($expression) {
-            return '<?php $__env->startComponent(\'components.mixmix\'); ?>';
+            return '<?php $__env->startComponent(\'laravel-mixmix::mixmix\'); ?>';
         });
 
         Blade::directive('endmixmix', function ($expression) {

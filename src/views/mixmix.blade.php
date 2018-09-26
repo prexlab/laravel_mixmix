@@ -66,4 +66,3 @@ if (preg_match_all('/<link.+?href="(.+?)[\?"].+?>/', $slot, $csss)){
 
 
 
-
