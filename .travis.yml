@@ -5,9 +5,8 @@ sudo: false
 before_script:
   - travis_retry composer self-update
   - travis_retry composer require "illuminate/support:${ILLUMINATE_VERSION}"
-
 script:
-  - phpunit
+  - phpunit tests --bootstrap=./vendor/autoload.php
 
 matrix:
   include:
