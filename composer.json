@@ -1,5 +1,15 @@
 {
     "name": "prexlab/laravel_mixmix",
+
+    "description": "Laravel Mixmix Directive",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "prexlab",
+        "email": "prexlab@dqc.jp"
+      }
+    ],
     "require": {
       "illuminate/support": "~5.4.0|~5.5.0|~5.6.0",
       "php" : "^7.0"

@@ -11,7 +11,7 @@ class MixMix
      * @param bool $force
      * @return null|String
      */
-    public static function css(String $slot, bool $force): ?String
+    public static function css(String $slot, bool $force): String
     {
        if (preg_match_all('/<script.+?src="(.+?)[\?"]/', $slot, $jss)) {
 
@@ -37,7 +37,7 @@ class MixMix
                 $baseName, filemtime($jsFile));
         }
 
-        return null;
+        return '';
     }
 
     /**
@@ -45,7 +45,7 @@ class MixMix
      * @param bool $force
      * @return null|String
      */
-    public static function js(String $slot, bool $force): ?String
+    public static function js(String $slot, bool $force): String
     {
         if (preg_match_all('/<link.+?href="(.+?)[\?"].+?>/', $slot, $csss)) {
 
@@ -71,7 +71,7 @@ class MixMix
                 $baseName, filemtime($cssFile));
         }
 
-        return null;
+        return '';
     }
 
     /**
