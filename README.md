@@ -5,6 +5,8 @@
 This `@mixmix` directive can convert CDN script/css files and local files into one local file.
 
 
+[![Build Status](https://travis-ci.org/prexlab/laravel_mixmix.svg?branch=master)](https://travis-ci.org/prexlab/laravel_mixmix)
+
 Before : 
 
 ```
