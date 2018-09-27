@@ -2,7 +2,7 @@
 # Laravel Mixmix Directive
 
 
-This `@mixmix` directive can convert CDN script/css files and local files to one local file.
+This `@mixmix` directive can convert CDN script/css files and local files into one local file.
 
 
 Before : 
